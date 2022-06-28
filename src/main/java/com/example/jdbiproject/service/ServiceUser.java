@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService extends AbstractEntityService<EntityUser, DaoUser> {
+public class ServiceUser extends AbstractEntityService<EntityUser, DaoUser> {
 
     private final DaoUser daoUser;
 
     @Autowired
-    public UserService(DaoUser dao) {
+    public ServiceUser(DaoUser dao) {
         super(dao);
         this.daoUser = dao;
     }

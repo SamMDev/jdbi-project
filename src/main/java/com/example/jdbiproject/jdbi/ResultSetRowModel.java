@@ -23,7 +23,7 @@ public class ResultSetRowModel {
     public ResultSetRowModel(ResultSet resultSet) throws SQLException {
         this.metaData = resultSet.getMetaData();
 
-        for (int columnIndex = 0; columnIndex < this.metaData.getColumnCount(); columnIndex++) {
+        for (int columnIndex = 1; columnIndex <= this.metaData.getColumnCount(); columnIndex++) {
             this.columnNames.add(metaData.getColumnLabel(columnIndex));
         }
     }

@@ -75,7 +75,7 @@ public abstract class BaseDao<E extends BaseEntity> {
                 handle ->
                         handle.createQuery(findByIdQuery)
                                 .bind("id", id)
-                                .mapToBean(reflect.getClazz())
+                                .mapTo(reflect.getClazz())
                                 .stream().findFirst().orElse(null));
     }
 
@@ -86,7 +86,7 @@ public abstract class BaseDao<E extends BaseEntity> {
     public List<E> findAll() {
         return this.jdbi.withHandle(handle -> handle
                 .createQuery(findAllQuery)
-                .mapToBean(reflect.getClazz())
+                .mapTo(reflect.getClazz())
                 .list()
         );
     }

@@ -11,8 +11,6 @@ public class DaoUser extends BaseDao<EntityUser> {
     @Autowired
     public DaoUser(Jdbi jdbi) {
         super(EntityUser.class, jdbi);
-
-        this.insert(new EntityUser("jozef", "[]", 11));
     }
 
 }

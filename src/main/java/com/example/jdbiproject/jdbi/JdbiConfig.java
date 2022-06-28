@@ -2,6 +2,7 @@ package com.example.jdbiproject.jdbi;
 
 import com.example.jdbiproject.db.model.EntityUser;
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.mapper.RowMapperFactory;
 import org.jdbi.v3.postgres.PostgresPlugin;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -33,7 +34,7 @@ public class JdbiConfig {
         return Jdbi.create(dataSource)
                 .installPlugin(new SqlObjectPlugin())
                 .installPlugin(new PostgresPlugin())
-                .registerRowMapper(new EntityRowMapper<>(EntityUser.class));
+                .registerRowMapper(RowMapperFactory.of(EntityUser.class, new EntityRowMapper<>(EntityUser.class)));
     }
 
 }
