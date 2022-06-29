@@ -1,4 +1,4 @@
-package com.example.jdbiproject.controller;
+package com.example.jdbiproject.controller.user;
 
 import com.example.jdbiproject.db.model.EntityUser;
 import com.example.jdbiproject.service.ServiceUser;

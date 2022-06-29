@@ -10,10 +10,13 @@ public class ServiceUser extends AbstractEntityService<EntityUser, DaoUser> {
 
     private final DaoUser daoUser;
 
+    private final ServiceBinaryObject serviceBinaryObject;
+
     @Autowired
-    public ServiceUser(DaoUser dao) {
+    public ServiceUser(DaoUser dao, ServiceBinaryObject serviceBinaryObject) {
         super(dao);
         this.daoUser = dao;
+        this.serviceBinaryObject = serviceBinaryObject;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.jdbiproject.jdbi;
 
+import com.example.jdbiproject.db.model.EntityBinaryObject;
+import com.example.jdbiproject.db.model.EntityProduct;
 import com.example.jdbiproject.db.model.EntityUser;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.mapper.RowMapperFactory;
@@ -34,7 +36,11 @@ public class JdbiConfig {
         return Jdbi.create(dataSource)
                 .installPlugin(new SqlObjectPlugin())
                 .installPlugin(new PostgresPlugin())
-                .registerRowMapper(RowMapperFactory.of(EntityUser.class, new EntityRowMapper<>(EntityUser.class)));
+                // here goes all the row mappers
+                .registerRowMapper(RowMapperFactory.of(EntityUser.class, new EntityRowMapper<>(EntityUser.class)))
+                .registerRowMapper(RowMapperFactory.of(EntityBinaryObject.class, new EntityRowMapper<>(EntityBinaryObject.class)))
+                .registerRowMapper(RowMapperFactory.of(EntityProduct.class, new EntityRowMapper<>(EntityProduct.class)))
+                ;
     }
 
 }

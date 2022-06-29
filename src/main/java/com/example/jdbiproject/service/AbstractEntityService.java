@@ -15,7 +15,7 @@ import java.util.List;
  */
 public abstract class AbstractEntityService<E extends BaseEntity, D extends BaseDao<E>> {
 
-    private final D dao;
+    protected final D dao;
 
     protected AbstractEntityService(D dao) {
         this.dao = dao;
